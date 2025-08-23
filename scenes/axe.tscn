@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ijv2qhwgs7g"]
+
+[ext_resource type="Script" uid="uid://cj34ondjfl3fd" path="res://scripts/axe.gd" id="1_odgf8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odgf8"]
+size = Vector3(0.188477, 0.952579, 0.660889)
+
+[node name="Axe" type="Area3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0, 0, 0)
+visible = false
+script = ExtResource("1_odgf8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0176392, -0.446562, 0.367371)
+shape = SubResource("BoxShape3D_odgf8")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0258636, -0.0439759)
+size = Vector3(0.223755, 0.894623, 0.692322)

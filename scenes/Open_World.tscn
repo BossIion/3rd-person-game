@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=3 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_51tu1"]
+[ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_a0j0i"]
 
 [node name="World" type="Node3D"]
 
@@ -13,5 +14,8 @@ size = Vector3(11.2207, 0.417175, 26.5273)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68715, -5.38784)
 omni_range = 10.0808
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_51tu1")]
+[node name="Player" parent="." instance=ExtResource("1_51tu1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
+
+[node name="Axe" parent="." instance=ExtResource("2_a0j0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378413, -0.546787, -4.39597)
