@@ -20,3 +20,6 @@ mesh = SubResource("CapsuleMesh_3vyb7")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.921185, 0.389124, 0, -0.389124, 0.921185, 0.118451, 2.32606, 2.40382)
+
+[node name="ItemHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284774, 0, -0.501852)

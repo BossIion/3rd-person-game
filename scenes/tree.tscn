@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://yqq5voq4gtk2"]
+[gd_scene load_steps=6 format=3 uid="uid://yqq5voq4gtk2"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ict6q"]
+[ext_resource type="Script" uid="uid://xbi6ydfumny0" path="res://scripts/tree.gd" id="1_avsvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avsvi"]
 size = Vector3(1, 3.19189, 1)
 
-[sub_resource type="Animation" id="Animation_ict6q"]
+[sub_resource type="Animation" id="Animation_avsvi"]
 resource_name = "Tree_Fall"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,10 +17,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.11759e-08, 0, 0), Vector3(-1.67257, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 1.69297, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_avsvi"]
+[sub_resource type="Animation" id="Animation_vplca"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -30,36 +32,38 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.11759e-08, 0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vplca"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_viusy"]
 _data = {
-&"RESET": SubResource("Animation_avsvi"),
-&"Tree_Fall": SubResource("Animation_ict6q")
+&"RESET": SubResource("Animation_vplca"),
+&"Tree_Fall": SubResource("Animation_avsvi")
 }
 
-[node name="Tree" type="Node3D"]
+[node name="Area3D" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_avsvi")
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.756664, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.050558, 0.998721, 0, -0.998721, -0.050558, -0.0263672, 2.18848, 0)
-shape = SubResource("BoxShape3D_ict6q")
+shape = SubResource("BoxShape3D_avsvi")
 
-[node name="STump" type="CSGBox3D" parent="Area3D/CollisionShape3D"]
+[node name="STump" type="CSGBox3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -3.72529e-09, 0, 3.72529e-09, 1, 0, -0.0864358, -1.02519)
+use_collision = true
 
-[node name="Node3D" type="Node3D" parent="Area3D/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.11759e-08, 0, 1.11759e-08, 1, 0, -0.198199, -0.661544)
+[node name="Node3D" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1.03791, 0, 0, 0, 1.00778, 0, 0, 0, 1.00039, -0.0375906, -0.223023, -0.662801)
 
-[node name="Tree" type="CSGBox3D" parent="Area3D/CollisionShape3D/Node3D"]
+[node name="Tree" type="CSGBox3D" parent="CollisionShape3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, -5.21541e-08, -1, 0, 1, -5.21541e-08, 0.0397319, 0.131068, 1.67038)
+use_collision = true
 size = Vector3(0.947266, 3.18506, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Area3D/CollisionShape3D/Node3D")
+root_node = NodePath("../CollisionShape3D/Node3D")
 libraries = {
-&"": SubResource("AnimationLibrary_vplca")
+&"": SubResource("AnimationLibrary_viusy")
 }

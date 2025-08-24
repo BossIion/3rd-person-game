@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=7 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_51tu1"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_a0j0i"]
+[ext_resource type="PackedScene" uid="uid://yqq5voq4gtk2" path="res://scenes/tree.tscn" id="3_3ce5c"]
+
+[sub_resource type="Animation" id="Animation_a0j0i"]
+resource_name = "Axe_SWING"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.49, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0801559, -3.1178, 1.54135), Vector3(0.404205, -3.1158, 1.5534), Vector3(-0.074398, -3.11781, 1.54149)]
+}
+
+[sub_resource type="Animation" id="Animation_3ce5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0801559, -3.1178, 1.54135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ke7nh"]
+_data = {
+&"Axe_SWING": SubResource("Animation_a0j0i"),
+&"RESET": SubResource("Animation_3ce5c")
+}
 
 [node name="World" type="Node3D"]
 
@@ -18,4 +55,12 @@ omni_range = 10.0808
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
 
 [node name="Axe" parent="." instance=ExtResource("2_a0j0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378413, -0.546787, -4.39597)
+transform = Transform3D(-0.0275297, 0.99934, -0.023714, 0.996357, 0.0293475, 0.0800701, 0.0807132, -0.0214233, -0.996507, -0.378413, -0.89865, -6.211)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Axe"]
+libraries = {
+&"": SubResource("AnimationLibrary_ke7nh")
+}
+
+[node name="Tree" parent="." instance=ExtResource("3_3ce5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18664, -1.83997, -12.7915)
