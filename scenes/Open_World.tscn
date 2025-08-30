@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=5 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_51tu1"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_a0j0i"]
+[ext_resource type="PackedScene" uid="uid://betpfe0s85icb" path="res://scenes/chest.tscn" id="3_3ce5c"]
+[ext_resource type="Script" uid="uid://brldl6r7w8blk" path="res://scenes/directional_light_3d.gd" id="4_ke7nh"]
 
 [node name="World" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65332, -1.67822, -8.04004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314849, -1.67822, -12.1038)
 use_collision = true
-size = Vector3(11.2207, 0.417175, 26.5273)
+size = Vector3(42.2706, 0.417175, 34.6548)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68715, -5.38784)
@@ -18,4 +20,23 @@ omni_range = 10.0808
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
 
 [node name="Axe" parent="." instance=ExtResource("2_a0j0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378413, -0.546787, -4.39597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90003, -0.371753, -3.77111)
+
+[node name="Chest" parent="." instance=ExtResource("3_3ce5c")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -9, -1, -4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.481062, -0.0731934, -0.873626, 0.866923, 0.188026, 0.461618, 0.130477, -0.979433, 0.153905, -20.6575, 6.74624, -2.52547)
+light_color = Color(1, 1, 0.215686, 1)
+light_energy = 7.35
+script = ExtResource("4_ke7nh")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.481062, -0.0731934, -0.873626, 0.866923, 0.188026, 0.461618, 0.130477, -0.979433, 0.153905, -20.6575, 6.74624, -2.52547)
+light_color = Color(0.211392, 0.123193, 0.229184, 1)
+light_energy = 7.35
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+
+[connection signal="timeout" from="Timer" to="DirectionalLight3D" method="_on_timer_timeout"]

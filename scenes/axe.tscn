@@ -7,7 +7,6 @@ size = Vector3(0.188477, 0.952579, 0.660889)
 
 [node name="Axe" type="Area3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0, 0, 0)
-visible = false
 script = ExtResource("1_odgf8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
