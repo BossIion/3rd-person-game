@@ -2,17 +2,30 @@
 
 [ext_resource type="Script" uid="uid://cj34ondjfl3fd" path="res://scripts/axe.gd" id="1_odgf8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_odgf8"]
-size = Vector3(0.188477, 0.952579, 0.660889)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8d8fu"]
+size = Vector3(0.914795, 0.364258, 0.401367)
 
+<<<<<<< HEAD
 [node name="Axe" type="Area3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0, 0, 0)
+=======
+[node name="Area3D" type="Area3D"]
+collision_layer = 3
+collision_mask = 3
+>>>>>>> d57ae05d202b299e3009f913ae295fb3a61cab53
 script = ExtResource("1_odgf8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0176392, -0.446562, 0.367371)
-shape = SubResource("BoxShape3D_odgf8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0853271, -0.317871, 0.299316)
+shape = SubResource("BoxShape3D_8d8fu")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0258636, -0.0439759)
-size = Vector3(0.223755, 0.894623, 0.692322)
+[node name="Node3D" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502419, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D/Node3D"]
+transform = Transform3D(0.362973, 0, 0, 0, 0.362973, 0, 0, 0, 0.362973, 0.532061, 0, -0.0622309)
+size = Vector3(2.79749, 1, 0.657104)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CollisionShape3D/Node3D"]
+transform = Transform3D(0.362973, 0, 0, 0, 0.362973, 0, 0, 0, 0.362973, 1.2201, 0, 0.256544)
+size = Vector3(1, 1, 2.41357)

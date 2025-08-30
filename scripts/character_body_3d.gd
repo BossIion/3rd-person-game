@@ -65,6 +65,14 @@ func sprint():
 		SPEED = SPRINT_SPEED
 	if Input.is_action_just_released("shift"):
 		SPEED = WALK_SPEED
+		
+func _on_item_collected(item_node):
+	var item_holder = get_node("ItemHolder")
+	item_node.reparent(item_holder)
+	
+	
+
+
 func _input(event: InputEvent) -> void:
 	# Call mouse movement handler
 	#check_for_shooting()
