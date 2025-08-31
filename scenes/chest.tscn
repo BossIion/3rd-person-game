@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://betpfe0s85icb"]
+
+[ext_resource type="Script" uid="uid://bl5y7u0m3ueh0" path="res://scripts/chest.gd" id="1_oii8l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uwsg"]
+size = Vector3(3.79837, 1.66119, 3.49911)
+
+[sub_resource type="Animation" id="Animation_bp1or"]
+resource_name = "Chest_Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.55943, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_trlyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x7mpe"]
+_data = {
+&"Chest_Open": SubResource("Animation_bp1or"),
+&"RESET": SubResource("Animation_trlyu")
+}
+
+[node name="Chest" type="Node3D"]
+script = ExtResource("1_oii8l")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719864, 0.330597, 0.0707352)
+shape = SubResource("BoxShape3D_8uwsg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.963838, 0.560547, 0, 0)
+use_collision = true
+size = Vector3(2.12842, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Area3D/CSGBox3D"]
+transform = Transform3D(0.999993, 0.000997475, 0.00364625, -0.00100144, 0.999999, 0.00116451, -0.00351327, -0.00112593, 1.03751, -0.00987738, 0.131592, -0.000915414)
+operation = 2
+size = Vector3(2.04916, 0.839355, 0.848877)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.963838, -0.566484, 0.469906, 0.465869)
+polygon = PackedVector2Array(0, 0, 0.603676, 0.704583, 1.71115, 0.669183, 2.21448, 0.0231261)
+
+[node name="Label3D" type="Label3D" parent="Area3D"]
+transform = Transform3D(-0.999424, 0, -0.0339401, 0, 1, 0, 0.0327128, 0, -0.963283, 0.575813, 1.5615, -0.35015)
+visible = false
+text = "Press E to Open Chests"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area3D/CSGPolygon3D")
+libraries = {
+&"": SubResource("AnimationLibrary_x7mpe")
+}
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
