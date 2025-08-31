@@ -1,24 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://yqq5voq4gtk2"]
+[gd_scene load_steps=8 format=3 uid="uid://yqq5voq4gtk2"]
 
 [ext_resource type="Script" uid="uid://xbi6ydfumny0" path="res://scripts/tree.gd" id="1_avsvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avsvi"]
 size = Vector3(1, 3.19189, 1)
 
-[sub_resource type="Animation" id="Animation_avsvi"]
-resource_name = "Tree_Fall"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.69297, 0)]
-}
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avsvi"]
+albedo_color = Color(0.442069, 0.304458, 0.135582, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vplca"]
+albedo_color = Color(0.470756, 0.289069, 0.0703584, 1)
 
 [sub_resource type="Animation" id="Animation_vplca"]
 length = 0.001
@@ -33,6 +24,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_avsvi"]
+resource_name = "Tree_Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.69297, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_viusy"]
@@ -53,6 +59,7 @@ shape = SubResource("BoxShape3D_avsvi")
 [node name="STump" type="CSGBox3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -3.72529e-09, 0, 3.72529e-09, 1, 0, -0.0864358, -1.02519)
 use_collision = true
+material = SubResource("StandardMaterial3D_avsvi")
 
 [node name="Node3D" type="Node3D" parent="CollisionShape3D"]
 transform = Transform3D(1.03791, 0, 0, 0, 1.00778, 0, 0, 0, 1.00039, -0.0375906, -0.223023, -0.662801)
@@ -61,6 +68,7 @@ transform = Transform3D(1.03791, 0, 0, 0, 1.00778, 0, 0, 0, 1.00039, -0.0375906,
 transform = Transform3D(1, 0, 0, 0, -5.21541e-08, -1, 0, 1, -5.21541e-08, 0.0397319, 0.131068, 1.67038)
 use_collision = true
 size = Vector3(0.947266, 3.18506, 1)
+material = SubResource("StandardMaterial3D_vplca")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape3D/Node3D")
