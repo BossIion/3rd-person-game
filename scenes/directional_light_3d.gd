@@ -7,7 +7,7 @@ var day = true
 func _ready() -> void:
 	timer.start()
 	sun.light_energy = 7.0
-	moon.light_energy = 0.1
+#	moon.light_energy = 1.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
