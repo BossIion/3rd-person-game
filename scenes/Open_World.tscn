@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=15 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_axe"]
@@ -42,6 +42,132 @@ _data = {
 &"RESET": SubResource("Animation_reset")
 }
 
+[sub_resource type="Animation" id="Animation_ue37c"]
+resource_name = "sun_rise_set"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30, 60),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.14159), Vector3(0, 0, 6.28319)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DirectionalLight_Main:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 29.5, 30, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 3.0, 7.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DirectionalLight_Ambient:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 15, 30, 59, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.0, 7.0, 0.0, 0.0, 3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WorldEnvironment:environment:ambient_light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.3, 29, 30, 59, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.7, 0.7, 1.2, 1.2, 0.7]
+}
+
+[sub_resource type="Animation" id="Animation_w7eur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DirectionalLight_Main:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DirectionalLight_Ambient:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WorldEnvironment:environment:ambient_light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onqla"]
+_data = {
+&"RESET": SubResource("Animation_w7eur"),
+&"sun_rise_set": SubResource("Animation_ue37c")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_340wd"]
+albedo_color = Color(1, 1, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ue37c"]
+albedo_color = Color(0.331786, 0.46616, 0.45204, 1)
+emission_enabled = true
+emission = Color(0.333333, 0.466667, 0.45098, 1)
+
+[sub_resource type="Environment" id="Environment_ue37c"]
+background_energy_multiplier = 1.85
+ambient_light_source = 3
+ambient_light_color = Color(0.746538, 0.887765, 0.984416, 1)
+ambient_light_energy = 0.7
+
 [node name="World" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -53,7 +179,7 @@ size = Vector3(42.2706, 0.417175, 34.6548)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
 
 [node name="Axe" parent="." instance=ExtResource("2_axe")]
-transform = Transform3D(-0.0275297, 0.99934, -0.023714, 0.996357, 0.0293475, 0.0800701, 0.0807132, -0.0214233, -0.996507, -8.90003, -0.371753, -3.77111)
+transform = Transform3D(-0.0275296, 0.99934, -0.023714, 0.996357, 0.0293475, 0.0800701, 0.0807131, -0.0214233, -0.996507, -8.90003, -1.05956, -3.05869)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Axe"]
 libraries = {
@@ -66,18 +192,39 @@ transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819
 [node name="Tree" parent="." instance=ExtResource("3_tree")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18664, -1.83997, -12.7915)
 
-[node name="DirectionalLight_Main" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.481062, -0.0731934, -0.873626, 0.866923, 0.188026, 0.461618, 0.130477, -0.979433, 0.153905, -20.6575, 6.74624, -2.52547)
-light_color = Color(1, 1, 0.215686, 1)
-light_energy = 7.35
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.04246, -10.2091)
+
+[node name="DirectionalLight_Main" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(-0.151571, 0.275597, -0.949249, 0.895781, 0.444274, -0.0140468, 0.417855, -0.852448, -0.314213, -47.2551, 2.90186, 0.00904179)
+light_color = Color(0.693413, 0.679807, 0.00551732, 1)
+light_energy = 0.0
 script = ExtResource("5_script")
 
-[node name="DirectionalLight_Ambient" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4824, -5.38784)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D/DirectionalLight_Main"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_onqla")
+}
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/DirectionalLight_Main"]
+transform = Transform3D(1, -1.19209e-07, -4.47035e-08, 2.98023e-08, 1, -2.98023e-08, -7.45058e-08, 2.98023e-08, 1, -0.512341, -0.644, 3.05355)
+radius = 3.5256
+material = SubResource("StandardMaterial3D_340wd")
+
+[node name="DirectionalLight_Ambient" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(-0.0753093, -2.40481e-07, 0.99716, -2.68221e-07, 1, 2.20909e-07, -0.99716, -2.50823e-07, -0.0753093, 31.4025, 3.92439, 0.70659)
 light_color = Color(0.490196, 0.478431, 1, 1)
-light_energy = 7.35
+light_energy = 3.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/DirectionalLight_Ambient"]
+radius = 1.17445
+material = SubResource("StandardMaterial3D_ue37c")
 
-[connection signal="timeout" from="Timer" to="DirectionalLight_Main" method="_on_timer_timeout"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ue37c")
+
+[connection signal="timeout" from="Timer" to="Node3D/DirectionalLight_Main" method="_on_timer_timeout"]

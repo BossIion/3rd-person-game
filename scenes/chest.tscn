@@ -1,9 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://betpfe0s85icb"]
+[gd_scene load_steps=9 format=3 uid="uid://betpfe0s85icb"]
 
 [ext_resource type="Script" uid="uid://bl5y7u0m3ueh0" path="res://scripts/chest.gd" id="1_oii8l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uwsg"]
 size = Vector3(3.79837, 1.66119, 3.49911)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oii8l"]
+albedo_color = Color(0.473287, 0.293792, 0.0874805, 1)
+rim = 0.11
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sy5e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqd3d"]
+albedo_color = Color(0.47451, 0.294118, 0.0862745, 1)
+rim = 0.44
+rim_tint = 0.57
+rim_texture = SubResource("CanvasTexture_sy5e1")
 
 [sub_resource type="Animation" id="Animation_bp1or"]
 resource_name = "Chest_Open"
@@ -54,6 +66,7 @@ shape = SubResource("BoxShape3D_8uwsg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.963838, 0.560547, 0, 0)
 use_collision = true
 size = Vector3(2.12842, 1, 1)
+material = SubResource("StandardMaterial3D_oii8l")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Area3D/CSGBox3D"]
 transform = Transform3D(0.999993, 0.000997475, 0.00364625, -0.00100144, 0.999999, 0.00116451, -0.00351327, -0.00112593, 1.03751, -0.00987738, 0.131592, -0.000915414)
@@ -63,6 +76,7 @@ size = Vector3(2.04916, 0.839355, 0.848877)
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.963838, -0.566484, 0.469906, 0.465869)
 polygon = PackedVector2Array(0, 0, 0.603676, 0.704583, 1.71115, 0.669183, 2.21448, 0.0231261)
+material = SubResource("StandardMaterial3D_gqd3d")
 
 [node name="Label3D" type="Label3D" parent="Area3D"]
 transform = Transform3D(-0.999424, 0, -0.0339401, 0, 1, 0, 0.0327128, 0, -0.963283, 0.575813, 1.5615, -0.35015)

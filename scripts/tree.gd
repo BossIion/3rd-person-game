@@ -2,7 +2,7 @@ extends Area3D
 
 # A variable to hold a reference to the axe node when it's detected
 var axe_in_range = false
-
+var animaton_finished = false
 func _ready():
 	area_entered.connect(_on_area_entered)
 
@@ -21,8 +21,9 @@ func _on_area_exited(node):
 
 func _process(_delta):
 	# Check for input every frame, but only if the axe is in range.
-	if axe_in_range:
+	if axe_in_range and animaton_finished == false:
 		if Input.is_action_just_pressed("click"):
 			print("clicked")
 			# Assuming the AnimationPlayer is a child of the current node
 			$AnimationPlayer.play("Tree_Fall")
+			animaton_finished = true

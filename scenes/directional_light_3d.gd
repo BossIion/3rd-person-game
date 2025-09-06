@@ -1,14 +1,12 @@
 extends DirectionalLight3D
 @onready var sun = $"."
-@onready var moon = $"../DirectionalLight3D2"
-@onready var timer = $"../Timer"
+@onready var moon = $"../DirectionalLight_Ambient"
+@onready var timer = $"../../Timer"
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
-	sun.light_energy = 7.0
-#	moon.light_energy = 1.0
-
+	$AnimationPlayer.play("sun_rise_set")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
