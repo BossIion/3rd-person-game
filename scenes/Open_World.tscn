@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=18 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_axe"]
 [ext_resource type="PackedScene" uid="uid://yqq5voq4gtk2" path="res://scenes/tree.tscn" id="3_tree"]
 [ext_resource type="PackedScene" uid="uid://betpfe0s85icb" path="res://scenes/chest.tscn" id="4_chest"]
 [ext_resource type="Script" uid="uid://brldl6r7w8blk" path="res://scenes/directional_light_3d.gd" id="5_script"]
+[ext_resource type="PackedScene" uid="uid://cj1mqxg046utx" path="res://scenes/crafting_table.tscn" id="6_w7eur"]
+[ext_resource type="PackedScene" uid="uid://bqfw3sqe8h0jm" path="res://scenes/house.tscn" id="7_onqla"]
+[ext_resource type="PackedScene" uid="uid://wlyiwb3e37pl" path="res://scenes/control.tscn" id="8_340wd"]
 
 [sub_resource type="Animation" id="Animation_axe_swing"]
 resource_name = "Axe_SWING"
@@ -40,6 +43,57 @@ tracks/0/keys = {
 _data = {
 &"Axe_SWING": SubResource("Animation_axe_swing"),
 &"RESET": SubResource("Animation_reset")
+}
+
+[sub_resource type="Animation" id="Animation_w7eur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DirectionalLight_Main:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DirectionalLight_Ambient:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WorldEnvironment:environment:ambient_light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
 }
 
 [sub_resource type="Animation" id="Animation_ue37c"]
@@ -95,57 +149,6 @@ tracks/3/keys = {
 "values": [0.7, 0.7, 1.2, 1.2, 0.7]
 }
 
-[sub_resource type="Animation" id="Animation_w7eur"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DirectionalLight_Main:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DirectionalLight_Ambient:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../WorldEnvironment:environment:ambient_light_energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_onqla"]
 _data = {
 &"RESET": SubResource("Animation_w7eur"),
@@ -179,7 +182,7 @@ size = Vector3(42.2706, 0.417175, 34.6548)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
 
 [node name="Axe" parent="." instance=ExtResource("2_axe")]
-transform = Transform3D(-0.0275296, 0.99934, -0.023714, 0.996357, 0.0293475, 0.0800701, 0.0807131, -0.0214233, -0.996507, -8.90003, -1.05956, -3.05869)
+transform = Transform3D(-0.0275296, 0.99934, -0.023714, 0.996356, 0.0293475, 0.0800701, 0.0807131, -0.0214233, -0.996507, -8.90003, -1.05956, -3.05869)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Axe"]
 libraries = {
@@ -226,5 +229,31 @@ material = SubResource("StandardMaterial3D_ue37c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ue37c")
+
+[node name="Area3D" parent="." instance=ExtResource("3_tree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.78606, -1.46963, -18.0412)
+
+[node name="Area3D2" parent="." instance=ExtResource("3_tree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191913, -1.46963, -20.2736)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.065
+anchor_bottom = 0.071
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 83.12
+offset_bottom = 33.992
+text = "Wood: 0"
+
+[node name="Crafting Table" parent="." instance=ExtResource("6_w7eur")]
+transform = Transform3D(-1.49934, 0, -0.0446302, 0, 1.5, 0, 0.0446302, 0, -1.49934, -7.22007, -0.394399, -16.0236)
+
+[node name="House" parent="." instance=ExtResource("7_onqla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3564, 3.06558, -24.8252)
+visible = false
+
+[node name="Crafting_bench_ui" parent="." instance=ExtResource("8_340wd")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="Node3D/DirectionalLight_Main" method="_on_timer_timeout"]

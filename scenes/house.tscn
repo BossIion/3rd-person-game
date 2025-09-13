@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqfw3sqe8h0jm"]
+
+[node name="House" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(9.24822, 0, 0, 0, 7.98942, 0, 0, 0, 8.1678, 0, 0, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31955, -0.111237, -0.0471802)
+operation = 2
+size = Vector3(3.6391, 7.55475, 6.89587)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32002, -2.34686, -0.12967)
+operation = 2
+size = Vector3(1, 3.40771, 2.04907)

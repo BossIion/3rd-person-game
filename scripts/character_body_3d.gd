@@ -4,7 +4,7 @@ var SPEED = 5.0
 var WALK_SPEED = 5.0
 var SPRINT_SPEED = 10.0
 const JUMP_VELOCITY = 4.5
-
+var wood = 0
 # Track mouse capture state
 var is_mouse_captured = false  # Set this to false by default
 
