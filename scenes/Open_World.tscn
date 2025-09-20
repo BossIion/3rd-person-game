@@ -261,5 +261,4 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.9982, -0.0599684, 0, 0.0599684, 0.9982, 10.2919, -0.686745, -20.9375)
 visible = false
 
-[connection signal="addWood" from="Tree" to="Player" method="_on_tree_add_wood"]
 [connection signal="timeout" from="Timer" to="Node3D/DirectionalLight_Main" method="_on_timer_timeout"]
