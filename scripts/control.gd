@@ -12,4 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	$"../Crafting Table".buy_house
+	$"../Crafting Table".buy_house()
+
+
+
+func _on_button_2_pressed() -> void:
+	$"../Forest".grow_forest()

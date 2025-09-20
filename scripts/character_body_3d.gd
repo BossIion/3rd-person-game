@@ -70,8 +70,6 @@ func _on_item_collected(item_node):
 	var item_holder = get_node("ItemHolder")
 	item_node.reparent(item_holder)
 	
-	
-
 
 func _input(event: InputEvent) -> void:
 	# Call mouse movement handler
@@ -80,3 +78,9 @@ func _input(event: InputEvent) -> void:
 	sprint()
 	# Also check for mouse capture/release
 	_capture_release_mouse_button()
+
+
+func _on_tree_add_wood(amtWood: int) -> void:
+	print("wood added")
+	wood += amtWood 
+	$"../Label".text = "Wood " + str(wood)
