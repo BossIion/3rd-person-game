@@ -29,6 +29,6 @@ func _process(_delta):
 			$AnimationPlayer.play("Tree_Fall")
 			animaton_finished = true
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	addWood.emit(3)
 	queue_free()
