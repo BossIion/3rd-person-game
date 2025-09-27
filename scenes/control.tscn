@@ -50,7 +50,7 @@ offset_bottom = 279.0
 scale = Vector2(6.66897, 5.3481)
 text = "House"
 
-[node name="Button" type="Button" parent="."]
+[node name="House" type="Button" parent="."]
 layout_mode = 0
 offset_left = 391.0
 offset_top = 271.0
@@ -67,7 +67,7 @@ offset_bottom = 428.0
 scale = Vector2(8.97291, 7.46747)
 text = "More trees"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Forest" type="Button" parent="."]
 layout_mode = 0
 offset_left = 818.0
 offset_top = 463.0
@@ -75,6 +75,5 @@ offset_right = 826.0
 offset_bottom = 471.0
 scale = Vector2(11.8873, 13.5259)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="House" to="." method="House"]
+[connection signal="pressed" from="Forest" to="." method="Forest"]

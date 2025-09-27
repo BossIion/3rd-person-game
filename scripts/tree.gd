@@ -24,8 +24,8 @@ func _process(_delta):
 	if axe_in_range and Input.is_action_just_pressed("click"):
 		print("clicked")
 		if animaton_finished == false:
-			%Woodadd.addWoodPlayer(3)
-			# Assuming the AnimationPlayer is a child of the current node
+			$"..".addWoodPlayer(3)
+			# Assuming the AnimationPlayer iAs a child of the current node
 			$AnimationPlayer.play("Tree_Fall")
 			animaton_finished = true
 

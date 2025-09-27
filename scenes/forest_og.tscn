@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bekyo3n1gjuvh"]
+
+[ext_resource type="PackedScene" uid="uid://yqq5voq4gtk2" path="res://scenes/tree.tscn" id="1_iqq7n"]
+[ext_resource type="Script" uid="uid://38i1y3twfupu" path="res://scripts/forest_og.gd" id="1_oy3xw"]
+
+[node name="ForestOG" type="Node3D"]
+script = ExtResource("1_oy3xw")
+
+[node name="Area3D" parent="." instance=ExtResource("1_iqq7n")]
+transform = Transform3D(1, 0, 0, 0, 0.998167, -0.0605259, 0, 0.0605259, 0.998167, 0, -1.19834, 0)
+
+[node name="Area3D2" parent="." instance=ExtResource("1_iqq7n")]
+transform = Transform3D(1, 0, 0, 0, 0.992674, -0.12083, 0, 0.12083, 0.992674, 0, -1.5448, 3.98281)
+
+[node name="Area3D3" parent="." instance=ExtResource("1_iqq7n")]
+transform = Transform3D(1, 0, 0, 0, 0.99931, 0.0371671, 0, -0.0371671, 0.99931, 0, -0.960114, -4.83856)
+
+[connection signal="addWood" from="." to="." method="_on_add_wood"]

@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_axe"]
-[ext_resource type="PackedScene" uid="uid://yqq5voq4gtk2" path="res://scenes/tree.tscn" id="3_tree"]
 [ext_resource type="PackedScene" uid="uid://betpfe0s85icb" path="res://scenes/chest.tscn" id="4_chest"]
 [ext_resource type="Script" uid="uid://brldl6r7w8blk" path="res://scripts/directional_light_3d.gd" id="5_script"]
 [ext_resource type="PackedScene" uid="uid://cj1mqxg046utx" path="res://scenes/crafting_table.tscn" id="6_w7eur"]
 [ext_resource type="PackedScene" uid="uid://bqfw3sqe8h0jm" path="res://scenes/house.tscn" id="7_onqla"]
 [ext_resource type="PackedScene" uid="uid://wlyiwb3e37pl" path="res://scenes/control.tscn" id="8_340wd"]
 [ext_resource type="PackedScene" uid="uid://dx6ejomkq637g" path="res://scenes/forest.tscn" id="9_enxyg"]
+[ext_resource type="PackedScene" uid="uid://bekyo3n1gjuvh" path="res://scenes/forest_og.tscn" id="9_xe0tc"]
 
 [sub_resource type="Animation" id="Animation_axe_swing"]
 resource_name = "Axe_SWING"
@@ -182,6 +182,11 @@ size = Vector3(42.2706, 0.417175, 34.6548)
 [node name="Player" parent="." instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79132, -0.469632, 1.1526)
 
+[node name="Node3D" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.921185, 0.389124, 0, -0.389124, 0.921185, 0.118451, 2.32606, 2.40382)
+
 [node name="Axe" parent="." instance=ExtResource("2_axe")]
 transform = Transform3D(-0.0275296, 0.99934, -0.023714, 0.996356, 0.0293475, 0.0800701, 0.0807131, -0.0214233, -0.996507, -8.90003, -1.05956, -3.05869)
 
@@ -192,9 +197,6 @@ libraries = {
 
 [node name="Chest" parent="." instance=ExtResource("4_chest")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -9, -1, -4)
-
-[node name="Tree" parent="." instance=ExtResource("3_tree")]
-transform = Transform3D(1, 0, 0, 0, 0.996627, -0.0820603, 0, 0.0820603, 0.996627, 1.18664, -2.00407, -12.7915)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -231,12 +233,6 @@ material = SubResource("StandardMaterial3D_ue37c")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ue37c")
 
-[node name="Area3D" parent="." instance=ExtResource("3_tree")]
-transform = Transform3D(1, 0, 0, 0, 0.998641, -0.0521094, 0, 0.0521094, 0.998641, 3.78606, -2.10741, -18.0412)
-
-[node name="Area3D2" parent="." instance=ExtResource("3_tree")]
-transform = Transform3D(1, 0, 0, 0, 0.998667, -0.0516213, 0, 0.0516213, 0.998667, 0.191913, -1.38387, -20.2736)
-
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
 anchor_right = 0.065
@@ -261,4 +257,9 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.9982, -0.0599684, 0, 0.0599684, 0.9982, 10.2919, -0.686745, -20.9375)
 visible = false
 
+[node name="ForestOG" parent="." instance=ExtResource("9_xe0tc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103431, -1.02711, -12.359)
+
 [connection signal="timeout" from="Timer" to="Node3D/DirectionalLight_Main" method="_on_timer_timeout"]
+[connection signal="addWood" from="Forest" to="Player" method="_on_forest_add_wood"]
+[connection signal="addWood" from="ForestOG" to="Player" method="_on_forest_og_add_wood"]

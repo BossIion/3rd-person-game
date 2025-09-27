@@ -11,6 +11,8 @@ var is_mouse_captured = false  # Set this to false by default
 # Sensitivity for mouse movement
 var sensitivity = 0.1
 
+signal addWood(wood: int)
+
 # Physics process (Character movement)
 func _physics_process(delta: float) -> void:
 	# Add gravity if not on the floor
@@ -80,7 +82,15 @@ func _input(event: InputEvent) -> void:
 	_capture_release_mouse_button()
 
 
-func _on_tree_add_wood(amtWood: int) -> void:
+func _on_forest_og_add_wood(amtWood: int) -> void:
+	print("wood added")
+	wood += amtWood 
+	$"../Label".text = "Wood " + str(wood)
+
+
+
+
+func _on_forest_add_wood(amtWood: int) -> void:
 	print("wood added")
 	wood += amtWood 
 	$"../Label".text = "Wood " + str(wood)
