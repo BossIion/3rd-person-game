@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://yqq5voq4gtk2"]
+[gd_scene load_steps=9 format=3 uid="uid://yqq5voq4gtk2"]
 
 [ext_resource type="Script" uid="uid://xbi6ydfumny0" path="res://scripts/tree.gd" id="1_avsvi"]
 
@@ -10,6 +10,9 @@ albedo_color = Color(0.442069, 0.304458, 0.135582, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vplca"]
 albedo_color = Color(0.470756, 0.289069, 0.0703584, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viusy"]
+albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_vplca"]
 resource_name = "RESET"
@@ -71,8 +74,15 @@ use_collision = true
 size = Vector3(0.947266, 3.18506, 1)
 material = SubResource("StandardMaterial3D_vplca")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.08033e-07, 0, -9.68575e-08, 0.999994, 0.00848378, 0.0756659, 2.52508)
+size = Vector3(2.79846, 2.55945, 1.8175)
+material = SubResource("StandardMaterial3D_viusy")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape3D/Node3D")
 libraries = {
 &"": SubResource("AnimationLibrary_viusy")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if in_range and Input.is_action_pressed("open_chest") and not opened:
+	if in_range and Input.is_action_pressed("open") and not opened:
 		opened = true
 		$AnimationPlayer.play("Chest_Open")
 

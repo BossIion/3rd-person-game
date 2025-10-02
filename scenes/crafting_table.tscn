@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj1mqxg046utx"]
+
+[ext_resource type="Script" uid="uid://bw54l2e17u5nx" path="res://crafting_table.gd" id="1_87o7u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xt1u"]
+size = Vector3(4.46866, 1.69238, 4.04901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itlxs"]
+albedo_color = Color(0.386838, 0.220379, 0.16309, 1)
+
+[node name="Crafting Table" type="Node3D"]
+script = ExtResource("1_87o7u")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.14192, 0, 0, 0, 1.14192, 0, 0, 0, 1.14192, 0.101376, 0.346191, -0.000209928)
+shape = SubResource("BoxShape3D_4xt1u")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03606e-05, 0.0181216, -0.00324202)
+material = SubResource("StandardMaterial3D_itlxs")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1.25176, 0, -0.020322, 0, 1.91531, 0, 0.0409722, 0, -0.576776, 0.0402617, 1.08465, -0.232993)
+visible = false
+text = "Press E to open
+ the crafting table
+"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

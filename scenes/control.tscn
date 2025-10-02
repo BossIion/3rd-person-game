@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://wlyiwb3e37pl"]
+
+[ext_resource type="Script" uid="uid://dpysh5saawey1" path="res://control.gd" id="1_5p55f"]
+
+[node name="Crafting_bench_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p55f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.56, 16.16)
+color = Color(0.207958, 0.230618, 0.807337, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8, 16.2)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 237.0
+offset_bottom = 23.0
+scale = Vector2(4.82528, 7.33935)
+text = "Welcome to the crafting bench"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 113.0
+offset_right = 283.0
+offset_bottom = 136.0
+scale = Vector2(4.16, 6.6)
+text = "Click on the button to craft the item"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 256.0
+offset_right = 75.0
+offset_bottom = 279.0
+scale = Vector2(6.66897, 5.3481)
+text = "House"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 271.0
+offset_right = 399.0
+offset_bottom = 279.0
+scale = Vector2(11.8873, 13.5259)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

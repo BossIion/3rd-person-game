@@ -21,9 +21,14 @@ func _on_area_exited(node):
 
 func _process(_delta):
 	# Check for input every frame, but only if the axe is in range.
-	if axe_in_range and animaton_finished == false:
-		if Input.is_action_just_pressed("click"):
-			print("clicked")
+	if axe_in_range and Input.is_action_just_pressed("click"):
+		print("clicked")
+		if animaton_finished == false:
+			$"../Player".wood += 3
+			$"../Label".text = "Wood " + str($"../Player".wood)
 			# Assuming the AnimationPlayer is a child of the current node
 			$AnimationPlayer.play("Tree_Fall")
 			animaton_finished = true
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()
