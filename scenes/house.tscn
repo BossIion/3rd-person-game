@@ -1,16 +1,113 @@
-[gd_scene format=3 uid="uid://bqfw3sqe8h0jm"]
+[gd_scene load_steps=9 format=3 uid="uid://bqfw3sqe8h0jm"]
+
+[ext_resource type="Script" uid="uid://cr44s0rcji6eo" path="res://scripts/door_hinge.gd" id="1_d7po0"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x8wvn"]
+data = PackedVector3Array(0.5, -0.0571553, 0.10956, 0.5, 0.5, 0.5, 0.5, -0.0571553, -0.141312, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.483685, 0.10956, 0.5, -0.483685, -0.141312, 0.5, -0.483685, 0.10956, 0.5, -0.5, 0.5, 0.5, -0.0571553, 0.10956, 0.5, -0.483685, -0.141312, 0.5, -0.0571553, -0.141312, 0.5, 0.5, -0.5, 0.5, -0.483685, -0.141312, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.0571553, 0.10956, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.483685, -0.141312, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.0571553, -0.141312, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.487355, 0.458868, -0.445895, 0.435707, 0.458868, 0.470064, 0.435707, 0.458868, -0.445895, -0.487355, 0.458868, -0.445895, 0.435707, 0.458868, -0.445895, 0.435707, -0.486714, -0.445895, 0.435707, -0.486714, 0.470064, 0.435707, -0.0571553, 0.10956, 0.435707, 0.458868, 0.470064, 0.435707, 0.458868, 0.470064, 0.435707, -0.0571553, -0.141312, 0.435707, 0.458868, -0.445895, 0.435707, -0.483685, 0.10956, 0.435707, -0.0571553, 0.10956, 0.435707, -0.486714, 0.470064, 0.435707, -0.0571553, -0.141312, 0.435707, 0.458868, 0.470064, 0.435707, -0.0571553, 0.10956, 0.435707, -0.483685, -0.141312, 0.435707, -0.483685, 0.10956, 0.435707, -0.486714, 0.470064, 0.435707, -0.486714, -0.445895, 0.435707, -0.486714, 0.470064, -0.487355, -0.486714, 0.470064, -0.487355, -0.486714, 0.470064, 0.435707, -0.486714, 0.470064, 0.435707, 0.458868, 0.470064, -0.487355, 0.458868, -0.445895, -0.487355, -0.486714, -0.445895, -0.487355, -0.486714, 0.470064, -0.487355, -0.486714, -0.445895, 0.435707, -0.486714, -0.445895, -0.487355, -0.486714, 0.470064, -0.487355, -0.486714, -0.445895, -0.487355, 0.458868, -0.445895, 0.435707, -0.486714, -0.445895, -0.487355, -0.486714, 0.470064, -0.487355, 0.458868, 0.470064, -0.487355, 0.458868, -0.445895, -0.487355, -0.486714, 0.470064, 0.435707, 0.458868, 0.470064, -0.487355, 0.458868, 0.470064, -0.487355, 0.458868, 0.470064, 0.435707, 0.458868, 0.470064, -0.487355, 0.458868, -0.445895, 0.435707, -0.483685, -0.141312, 0.435707, -0.486714, 0.470064, 0.435707, -0.486714, -0.445895, 0.435707, -0.486714, -0.445895, 0.435707, 0.458868, -0.445895, 0.435707, -0.483685, -0.141312, 0.435707, 0.458868, -0.445895, 0.435707, -0.0571553, -0.141312, 0.435707, -0.483685, -0.141312, 0.5, -0.483685, -0.141312, 0.435707, -0.483685, -0.141312, 0.435707, -0.0571553, -0.141312, 0.5, -0.483685, -0.141312, 0.5, -0.483685, 0.10956, 0.435707, -0.483685, -0.141312, 0.5, -0.0571553, 0.10956, 0.5, -0.0571553, -0.141312, 0.435707, -0.0571553, 0.10956, 0.435707, -0.0571553, 0.10956, 0.435707, -0.483685, 0.10956, 0.5, -0.0571553, 0.10956, 0.5, -0.483685, -0.141312, 0.435707, -0.0571553, -0.141312, 0.5, -0.0571553, -0.141312, 0.5, -0.483685, 0.10956, 0.5, -0.0571553, 0.10956, 0.435707, -0.483685, 0.10956, 0.435707, -0.0571553, -0.141312, 0.435707, -0.0571553, 0.10956, 0.5, -0.0571553, -0.141312, 0.435707, -0.483685, 0.10956, 0.435707, -0.483685, -0.141312, 0.5, -0.483685, 0.10956)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtlar"]
+albedo_color = Color(0.378916, 0.178675, 0.0126626, 1)
+
+[sub_resource type="Animation" id="Animation_se78b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3bgk5"]
+resource_name = "door_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.73709, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rk7hg"]
+resource_name = "door_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.73709, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f74lx"]
+_data = {
+&"RESET": SubResource("Animation_se78b"),
+&"door_close": SubResource("Animation_3bgk5"),
+&"door_open": SubResource("Animation_rk7hg")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptc3g"]
+size = Vector3(2.31592, 2.56177, 2.35742)
 
 [node name="House" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(9.24822, 0, 0, 0, 7.98942, 0, 0, 0, 8.1678, 0, 0, 0)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31955, -0.111237, -0.0471802)
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.108129, 0, 0, 0, 0.125164, 0, 0, 0, 0.122432, -0.025824, -0.013923, 0.0120841)
 operation = 2
-size = Vector3(3.6391, 7.55475, 6.89587)
+size = Vector3(8.53667, 7.55475, 7.48137)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32002, -2.34686, -0.12967)
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.108129, 0, 0, 0, 0.125166, 0, 0, 0, 0.122432, 0.467119, -0.27042, -0.0158758)
 operation = 2
 size = Vector3(1, 3.40771, 2.04907)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(9.24822, 0, 0, 0, 7.98942, 0, 0, 0, 8.1678, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_x8wvn")
+
+[node name="DoorHinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64988, -1.68854, 0.988488)
+script = ExtResource("1_d7po0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="DoorHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109111, -0.385469, -1.22471)
+use_collision = true
+size = Vector3(0.165787, 3.54352, 2.27607)
+material = SubResource("StandardMaterial3D_qtlar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorHinge/CSGBox3D2"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_f74lx")
+}
+
+[node name="Area3D" type="Area3D" parent="DoorHinge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorHinge/Area3D"]
+transform = Transform3D(1.80472, 0, 0, 0, 1.23322, 0, 0, 0, 1.2332, 0.204884, -0.490306, -0.836993)
+shape = SubResource("BoxShape3D_ptc3g")
+
+[node name="Timer" type="Timer" parent="DoorHinge"]
+
+[connection signal="body_entered" from="DoorHinge/Area3D" to="DoorHinge" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="DoorHinge/Area3D" to="DoorHinge" method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="DoorHinge/Timer" to="DoorHinge" method="_on_timer_timeout"]

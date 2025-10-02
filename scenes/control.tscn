@@ -1,19 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://wlyiwb3e37pl"]
 
-[ext_resource type="Script" uid="uid://dpysh5saawey1" path="res://control.gd" id="1_5p55f"]
+[ext_resource type="Script" uid="uid://dpysh5saawey1" path="res://scripts/control.gd" id="1_5p55f"]
 
 [node name="Crafting_bench_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p55f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 41.0
 offset_bottom = 40.0
 scale = Vector2(28.56, 16.16)
 color = Color(0.207958, 0.230618, 0.807337, 1)
@@ -49,7 +50,7 @@ offset_bottom = 279.0
 scale = Vector2(6.66897, 5.3481)
 text = "House"
 
-[node name="Button" type="Button" parent="."]
+[node name="House" type="Button" parent="."]
 layout_mode = 0
 offset_left = 391.0
 offset_top = 271.0
@@ -57,4 +58,22 @@ offset_right = 399.0
 offset_bottom = 279.0
 scale = Vector2(11.8873, 13.5259)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 405.0
+offset_right = 73.0
+offset_bottom = 428.0
+scale = Vector2(8.97291, 7.46747)
+text = "More trees"
+
+[node name="Forest" type="Button" parent="."]
+layout_mode = 0
+offset_left = 818.0
+offset_top = 463.0
+offset_right = 826.0
+offset_bottom = 471.0
+scale = Vector2(11.8873, 13.5259)
+
+[connection signal="pressed" from="House" to="." method="House"]
+[connection signal="pressed" from="Forest" to="." method="Forest"]

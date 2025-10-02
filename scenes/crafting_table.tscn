@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj1mqxg046utx"]
 
-[ext_resource type="Script" uid="uid://bw54l2e17u5nx" path="res://crafting_table.gd" id="1_87o7u"]
+[ext_resource type="Script" uid="uid://bw54l2e17u5nx" path="res://scripts/crafting_table.gd" id="1_87o7u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xt1u"]
 size = Vector3(4.46866, 1.69238, 4.04901)
@@ -22,10 +22,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03606e-05, 0.0181216, -0.00
 material = SubResource("StandardMaterial3D_itlxs")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(-1.25176, 0, -0.020322, 0, 1.91531, 0, 0.0409722, 0, -0.576776, 0.0402617, 1.08465, -0.232993)
+transform = Transform3D(-1.25176, 0, -0.020322, 0, 1.91531, 0, 0.0409722, 0, -0.576776, 0.0402617, 1.08465, 0.0219737)
 visible = false
+billboard = 1
 text = "Press E to open
  the crafting table
 "
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
