@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://jxev5k6rfw7c"]
+
+[ext_resource type="Script" uid="uid://bl5y7u0m3ueh0" path="res://scripts/chest.gd" id="1_j1fkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71ho0"]
+size = Vector3(3.79837, 1.66119, 3.49911)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8tuc"]
+albedo_color = Color(0.247059, 0.0823529, 0.537255, 1)
+emission_enabled = true
+emission = Color(0.247059, 0.0823529, 0.537255, 1)
+rim = 0.11
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sy5e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htwvf"]
+albedo_color = Color(0.247059, 0.0823529, 0.537255, 1)
+emission_enabled = true
+emission = Color(0.247059, 0.0823529, 0.537255, 1)
+emission_energy_multiplier = 2.19
+rim = 0.44
+rim_tint = 0.57
+rim_texture = SubResource("CanvasTexture_sy5e1")
+
+[sub_resource type="Animation" id="Animation_bp1or"]
+resource_name = "Chest_Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.55943, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_trlyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x7mpe"]
+_data = {
+&"Chest_Open": SubResource("Animation_bp1or"),
+&"RESET": SubResource("Animation_trlyu")
+}
+
+[node name="Legendary_Chest" type="Node3D"]
+script = ExtResource("1_j1fkw")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719864, 0.330597, 0.0707352)
+shape = SubResource("BoxShape3D_71ho0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.963838, 0.560547, 0, 0.167483)
+use_collision = true
+size = Vector3(2.12842, 1, 1.34753)
+material = SubResource("StandardMaterial3D_h8tuc")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Area3D/CSGBox3D"]
+transform = Transform3D(0.99999, 0.00099747, 0.00364624, -0.00100143, 0.999996, 0.0011645, -0.00351327, -0.00112593, 1.03751, -0.00984824, 0.131601, 0.00738011)
+operation = 2
+size = Vector3(2.04916, 0.839355, 1.17175)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2796, -0.564322, 0.469906, 0.794196)
+polygon = PackedVector2Array(0, 0, 0.603676, 0.704583, 1.71115, 0.669183, 2.21448, 0.0231261)
+material = SubResource("StandardMaterial3D_htwvf")
+
+[node name="Label3D" type="Label3D" parent="Area3D"]
+transform = Transform3D(-0.999424, 0, -0.0339401, 0, 1, 0, 0.0327128, 0, -0.963283, 0.575813, 1.5615, -0.35015)
+visible = false
+text = "Press E to Open Chests"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area3D/CSGPolygon3D")
+libraries = {
+&"": SubResource("AnimationLibrary_x7mpe")
+}
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -25,14 +25,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.8, 16.2)
 
-[node name="Label" type="Label" parent="."]
+[node name="Intro" type="Label" parent="."]
 layout_mode = 0
 offset_right = 237.0
 offset_bottom = 23.0
 scale = Vector2(4.82528, 7.33935)
 text = "Welcome to the crafting bench"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Directions" type="Label" parent="."]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 113.0
@@ -41,7 +41,7 @@ offset_bottom = 136.0
 scale = Vector2(4.16, 6.6)
 text = "Click on the button to craft the item"
 
-[node name="Label3" type="Label" parent="."]
+[node name="HouseLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 256.0
@@ -58,7 +58,7 @@ offset_right = 399.0
 offset_bottom = 279.0
 scale = Vector2(11.8873, 13.5259)
 
-[node name="Label4" type="Label" parent="."]
+[node name="TreeLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 405.0
@@ -75,5 +75,24 @@ offset_right = 826.0
 offset_bottom = 471.0
 scale = Vector2(11.8873, 13.5259)
 
+[node name="Bridge" type="Button" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 295.0
+offset_right = 978.0
+offset_bottom = 303.0
+scale = Vector2(11.72, 10)
+
+[node name="BridgeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 273.0
+offset_right = 607.0
+offset_bottom = 322.0
+scale = Vector2(6.66897, 5.3481)
+text = "Bridge
+"
+
 [connection signal="pressed" from="House" to="." method="House"]
 [connection signal="pressed" from="Forest" to="." method="Forest"]
+[connection signal="pressed" from="Bridge" to="." method="_on_bridge_pressed"]

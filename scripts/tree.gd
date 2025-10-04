@@ -5,7 +5,7 @@ var axe_in_range = false
 var animaton_finished = false
 func _ready():
 	area_entered.connect(_on_area_entered)
-
+	
 func _on_area_entered(node):
 	# This signal is only called when a body enters the area.
 	print("area entered")

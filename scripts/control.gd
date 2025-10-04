@@ -19,3 +19,7 @@ func Forest() -> void:
 
 func House() -> void:
 	$"../Crafting Table".buy_house()
+
+
+func _on_bridge_pressed() -> void:
+	$"../Bridge".build_bridge()

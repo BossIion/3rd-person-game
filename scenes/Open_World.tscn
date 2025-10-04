@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpmqngcywil86"]
+[gd_scene load_steps=23 format=3 uid="uid://bpmqngcywil86"]
 
 [ext_resource type="PackedScene" uid="uid://bb18bilw8dg65" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://b7ijv2qhwgs7g" path="res://scenes/axe.tscn" id="2_axe"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://wlyiwb3e37pl" path="res://scenes/control.tscn" id="8_340wd"]
 [ext_resource type="PackedScene" uid="uid://dx6ejomkq637g" path="res://scenes/forest.tscn" id="9_enxyg"]
 [ext_resource type="PackedScene" uid="uid://bekyo3n1gjuvh" path="res://scenes/forest_og.tscn" id="9_xe0tc"]
+[ext_resource type="PackedScene" uid="uid://cu12536sklhfm" path="res://scenes/island.tscn" id="10_xe0tc"]
+[ext_resource type="PackedScene" uid="uid://t0aiq4ji75db" path="res://scenes/bridge.tscn" id="11_wi7s1"]
+[ext_resource type="PackedScene" uid="uid://jxev5k6rfw7c" path="res://scenes/legendary_chest.tscn" id="12_c4b18"]
+[ext_resource type="PackedScene" uid="uid://csfxbyii81oaq" path="res://scenes/coolspiderthingy.tscn" id="13_0pahq"]
 
 [sub_resource type="Animation" id="Animation_axe_swing"]
 resource_name = "Axe_SWING"
@@ -259,6 +263,18 @@ visible = false
 
 [node name="ForestOG" parent="." instance=ExtResource("9_xe0tc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103431, -1.02711, -12.359)
+
+[node name="Island" parent="." instance=ExtResource("10_xe0tc")]
+transform = Transform3D(-0.0762839, 0, -0.997086, 0, 1, 0, 0.997086, 0, -0.0762839, 14.9201, -2.36985, -46.0356)
+
+[node name="Bridge" parent="." instance=ExtResource("11_wi7s1")]
+transform = Transform3D(-0.197045, 0, 3.69218, 0, 2.15548, 0, -3.40911, 0, -0.213407, 16.3204, -1.73976, -30.2386)
+
+[node name="Legendary_Chest" parent="." instance=ExtResource("12_c4b18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6967, -0.469379, -48.2)
+
+[node name="Coolspiderthingy" parent="." instance=ExtResource("13_0pahq")]
+transform = Transform3D(-0.213627, 0, 0.976915, 0, 1, 0, -0.976915, 0, -0.213627, -1.73636, -1.41967, -5.16895)
 
 [connection signal="timeout" from="Timer" to="Node3D/DirectionalLight_Main" method="_on_timer_timeout"]
 [connection signal="addWood" from="Forest" to="Player" method="_on_forest_add_wood"]
