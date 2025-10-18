@@ -1,17 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://csfxbyii81oaq"]
+[gd_scene load_steps=10 format=3 uid="uid://csfxbyii81oaq"]
 
 [ext_resource type="PackedScene" uid="uid://cvk6cw8q7hkbm" path="res://Assets/Coolspiderthingy.glb" id="1_wuvxv"]
-[ext_resource type="Script" uid="uid://cajvrhe8pyasr" path="res://StartIK.gd" id="2_rw57v"]
-[ext_resource type="Script" uid="uid://lkmai5oel00x" path="res://Scenes/coolspiderthingy.gd" id="2_sx3re"]
-[ext_resource type="Script" uid="uid://cxr33eni6uk7h" path="res://Scenes/Sharpie.gd" id="4_f3yer"]
-[ext_resource type="Script" uid="uid://ct7hfldkvv6nc" path="res://Scenes/RayofCast.gd" id="5_4hdn5"]
-[ext_resource type="Script" uid="uid://xskt0sm10vlo" path="res://Scenes/container_thingfor_stepping.gd" id="5_wrv0w"]
+[ext_resource type="Script" uid="uid://cajvrhe8pyasr" path="res://scripts/StartIK.gd" id="2_rw57v"]
+[ext_resource type="Script" uid="uid://lkmai5oel00x" path="res://scripts/coolspiderthingy.gd" id="2_sx3re"]
+[ext_resource type="Script" uid="uid://cxr33eni6uk7h" path="res://scripts/Sharpie.gd" id="4_f3yer"]
+[ext_resource type="Script" uid="uid://ct7hfldkvv6nc" path="res://scripts/RayofCast.gd" id="5_4hdn5"]
+[ext_resource type="Script" uid="uid://xskt0sm10vlo" path="res://scripts/container_thingfor_stepping.gd" id="5_wrv0w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrv0w"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hdn5"]
 albedo_color = Color(0.215824, 0.509627, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0b8lt"]
+size = Vector3(3.97355, 1.79626, 2.28955)
 
 [node name="Coolspiderthingy" instance=ExtResource("1_wuvxv")]
 script = ExtResource("2_sx3re")
@@ -240,3 +243,14 @@ diagonal = NodePath("../LeftDown")
 radius = 0.1
 rings = 12
 material = SubResource("StandardMaterial3D_4hdn5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="9"]
+debug_enabled = true
+
+[node name="Area3D" type="Area3D" parent="." index="10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0310252, 1.74383, 0.28833)
+shape = SubResource("BoxShape3D_0b8lt")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

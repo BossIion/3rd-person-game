@@ -14,12 +14,12 @@ func _process(delta: float) -> void:
 
 
 func Forest() -> void:
-	$"../Forest".grow_forest()
+	$"../NavigationRegion3D/Forest".grow_forest()
 
 
 func House() -> void:
-	$"../Crafting Table".buy_house()
+	$"../NavigationRegion3D/Crafting Table".buy_house()
 
 
 func _on_bridge_pressed() -> void:
-	$"../Bridge".build_bridge()
+	$"../NavigationRegion3D/Bridge".build_bridge()

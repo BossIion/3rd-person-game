@@ -13,8 +13,8 @@ func _ready() -> void:
 	pass
 
 func grow_forest():
-	if $"../Player".wood >= 4:
+	if $"../../Player".wood >= 4:
 		position.y += 50
-		$"../Player".wood = $"../Player".wood - 4
-		$"../Label".text = "Wood " + str($"../Player".wood)
+		$"../../Player".wood = $"../../Player".wood - 4
+		$"../../Label".text = "Wood " + str($"../../Player".wood)
 		$"."["visible"] = true

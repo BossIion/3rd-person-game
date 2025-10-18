@@ -11,20 +11,20 @@ func _process(delta: float) -> void:
 	if in_range:
 		if Input.is_action_just_pressed("open") and opened == false:
 			opened = true
-			$"../Crafting_bench_ui"["visible"] = true
-			$"../Player".release_mouse()
+			$"../../Crafting_bench_ui"["visible"] = true
+			$"../../Player".release_mouse()
 			print("opened")
 		elif opened == true and Input.is_action_just_pressed("open"):
-			$"../Crafting_bench_ui"["visible"] = false
-			$"../Player".capture_mouse()
+			$"../../Crafting_bench_ui"["visible"] = false
+			$"../../Player".capture_mouse()
 			print("closed")
 			opened = false
 
 	
 func buy_house():
-	if $"../Player".wood >= 5:
-		$"../Player".wood = $"../Player".wood - 5
-		$"../Label".text = "Wood " + str($"../Player".wood)
+	if $"../../Player".wood >= 5:
+		$"../../Player".wood = $"../../Player".wood - 5
+		$"../../Label".text = "Wood " + str($"../../Player".wood)
 		$"../House"["visible"] = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

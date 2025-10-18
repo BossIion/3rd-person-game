@@ -13,8 +13,6 @@ func _process(delta: float) -> void:
 		$AnimationPlayer.play("Chest_Open")
 
 
-	
-
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
