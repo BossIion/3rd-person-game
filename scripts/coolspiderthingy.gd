@@ -13,7 +13,7 @@ extends Node3D
 @onready var right_down: Marker3D = $RightDown
 @onready var right_center_down: Marker3D = $RightCenterDown
 @onready var right_up: Marker3D = $RightUp
-
+var legendary_chest_opened = false
 func _process(delta):
 	var plane1 = Plane(left_down.global_position, left_up.global_position, right_up.global_position)
 	var plane2 = Plane(right_up.global_position, right_down.global_position, left_down.global_position)
@@ -26,8 +26,8 @@ func _process(delta):
 	var target_pos = avg + transform.basis.y * ground_offset
 	var distance = transform.basis.y.dot(target_pos - position)
 	position = lerp(position, position + transform.basis.y * distance, move_speed * delta)
-	
-	_handle_movement(delta)
+	if legendary_chest_opened == true:
+		_handle_movement(delta)
 	
 func _handle_movement(delta):
 	NavAgent.set_target_position(player.position)
