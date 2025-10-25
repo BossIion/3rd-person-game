@@ -2,9 +2,13 @@ extends Node3D
 var in_range = false
 var opened = false
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var csg_baked_collision_shape_3d_2: CollisionShape3D = $"../House".get_child(1).get_child(0)
 
+@onready var csg_box_3d_2: CSGBox3D = $"../House/DoorHinge/CSGBox3D2"
+
+func _ready() -> void:
+	csg_baked_collision_shape_3d_2.disabled = true
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +26,8 @@ func _process(delta: float) -> void:
 
 	
 func buy_house():
+	csg_baked_collision_shape_3d_2.disabled = false
+	csg_box_3d_2["use_collision"] = true
 	if $"../../Player".wood >= 5:
 		$"../../Player".wood = $"../../Player".wood - 5
 		$"../../Label".text = "Wood " + str($"../../Player".wood)
