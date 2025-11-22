@@ -13,6 +13,8 @@ extends Node3D
 @onready var right_down: Marker3D = $RightDown
 @onready var right_center_down: Marker3D = $RightCenterDown
 @onready var right_up: Marker3D = $RightUp
+
+var movement = false
 var legendary_chest_opened = false
 func _process(delta):
 	var plane1 = Plane(left_down.global_position, left_up.global_position, right_up.global_position)
@@ -27,6 +29,8 @@ func _process(delta):
 	var distance = transform.basis.y.dot(target_pos - position)
 	position = lerp(position, position + transform.basis.y * distance, move_speed * delta)
 	if legendary_chest_opened == true:
+		$"../NavigationRegion3D/Legendary_Chest/Timer".start()
+	if movement:
 		_handle_movement(delta)
 	
 func _handle_movement(delta):
@@ -92,3 +96,8 @@ func die(body):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	die(body)
+	
+func _on_timer_timeout() -> void:
+	global_position = $"../NavigationRegion3D/Legendary_Chest".global_position
+	movement = true
+	print("Spider spawned")

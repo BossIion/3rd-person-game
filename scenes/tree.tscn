@@ -1,18 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://yqq5voq4gtk2"]
+[gd_scene load_steps=8 format=3 uid="uid://yqq5voq4gtk2"]
 
 [ext_resource type="Script" uid="uid://xbi6ydfumny0" path="res://scripts/tree.gd" id="1_avsvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avsvi"]
 size = Vector3(1, 3.19189, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avsvi"]
-albedo_color = Color(0.442069, 0.304458, 0.135582, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vplca"]
+diffuse_mode = 3
 albedo_color = Color(0.470756, 0.289069, 0.0703584, 1)
+roughness = 0.0
+rim_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viusy"]
-albedo_color = Color(0, 1, 0, 1)
+diffuse_mode = 3
+albedo_color = Color(0, 0.556863, 0, 1)
+roughness = 0.0
+rim_enabled = true
+rim_tint = 0.9
 
 [sub_resource type="Animation" id="Animation_vplca"]
 resource_name = "RESET"
@@ -64,7 +68,7 @@ shape = SubResource("BoxShape3D_avsvi")
 [node name="STump" type="CSGBox3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -3.72529e-09, 0, 3.72529e-09, 1, 0, -0.0864358, -1.02519)
 use_collision = true
-material = SubResource("StandardMaterial3D_avsvi")
+material = SubResource("StandardMaterial3D_vplca")
 
 [node name="Node3D" type="Node3D" parent="CollisionShape3D"]
 transform = Transform3D(1.03791, 0, 0, 0, 1.00778, 0, 0, 0, 1.00039, -0.0375906, -0.223023, -0.662801)
@@ -76,7 +80,7 @@ size = Vector3(0.947266, 3.18506, 1)
 material = SubResource("StandardMaterial3D_vplca")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999997, 1.08033e-07, 0, -9.68575e-08, 0.999994, 0.00848378, 0.0756659, 2.52508)
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.08033e-07, 0, -1.00583e-07, 0.999994, 0.0262318, 0.167135, 2.4576)
 size = Vector3(2.79846, 2.55945, 1.8175)
 material = SubResource("StandardMaterial3D_viusy")
 
