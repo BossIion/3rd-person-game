@@ -9,13 +9,14 @@ func _ready():
 func _on_area_entered(node):
 	# This signal is only called when a body enters the area.
 	print("area entered")
-	if node.name == "Axe":
+	print(node.name)
+	if node.name == "Axe" or node.name == "Axe_99":
 		print("Axe detected")
 		axe_in_range = true
 
 func _on_area_exited(node):
 	# It's good practice to also handle when a body exits the area.
-	if node.name == "Axe":
+	if node.name == "Axe" or node.name == "Axe_99":
 		print("Axe exited")
 		axe_in_range = false
 

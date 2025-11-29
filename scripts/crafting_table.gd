@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 func buy_house():
 	csg_baked_collision_shape_3d_2.disabled = false
 	csg_box_3d_2["use_collision"] = true
-	if $"../../Player".wood >= 5:
-		$"../../Player".wood = $"../../Player".wood - 5
+	if $"../../Player".wood >= 3:
+		$"../../Player".wood = $"../../Player".wood - 3
 		$"../../Label".text = "Wood " + str($"../../Player".wood)
 		$"../House"["visible"] = true
 

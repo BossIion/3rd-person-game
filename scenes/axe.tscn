@@ -12,7 +12,7 @@ collision_mask = 3
 script = ExtResource("1_odgf8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0853271, -0.317871, 0.299316)
+transform = Transform3D(1, 0, 0, 0, -0.991989, -0.12632, 0, 0.12632, -0.99199, -0.0853271, -0.317871, 0.299316)
 shape = SubResource("BoxShape3D_8d8fu")
 
 [node name="Node3D" type="Node3D" parent="CollisionShape3D"]

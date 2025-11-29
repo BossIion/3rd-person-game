@@ -29,7 +29,9 @@ func _process(delta):
 	var distance = transform.basis.y.dot(target_pos - position)
 	position = lerp(position, position + transform.basis.y * distance, move_speed * delta)
 	if legendary_chest_opened == true:
+		print("chest opened")
 		$"../NavigationRegion3D/Legendary_Chest/Timer".start()
+		legendary_chest_opened = false
 	if movement:
 		_handle_movement(delta)
 	

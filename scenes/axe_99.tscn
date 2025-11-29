@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwifnmdvmd0nl"]
+
+[ext_resource type="Script" uid="uid://bonul0q0upgby" path="res://scripts/axe99.gd" id="1_u022q"]
+[ext_resource type="PackedScene" uid="uid://dwo3fhno13swu" path="res://Assets/lvl_9000_axe.glb" id="2_rnee3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u022q"]
+size = Vector3(1.88171, 4.38498, 0.504395)
+
+[node name="Axe_99" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_u022q")
+
+[node name="lvl_9000_axe" parent="." instance=ExtResource("2_rnee3")]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999995, 0, 0, 0, 0.999995, 0, 0, 0, 1, 0.440856, -0.0422178, 0.0373535)
+shape = SubResource("BoxShape3D_u022q")
