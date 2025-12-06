@@ -54,3 +54,4 @@ func shoot():
 		var axe_instance = axe_scene.instantiate()
 		get_tree().root.add_child(axe_instance) # add the projectile
 		axe_instance.global_position = %Projectile_spawn_point.global_position
+		axe_instance.global_rotation = %Player.global_rotation

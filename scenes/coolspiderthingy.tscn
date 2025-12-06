@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csfxbyii81oaq"]
+[gd_scene load_steps=11 format=3 uid="uid://csfxbyii81oaq"]
 
 [ext_resource type="PackedScene" uid="uid://cvk6cw8q7hkbm" path="res://Assets/Coolspiderthingy.glb" id="1_wuvxv"]
 [ext_resource type="Script" uid="uid://lkmai5oel00x" path="res://scripts/coolspiderthingy.gd" id="2_sx3re"]
@@ -23,6 +23,10 @@ albedo_color = Color(0.215824, 0.509627, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0b8lt"]
 size = Vector3(3.97355, 1.79626, 2.28955)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uxmuf"]
+radius = 0.1
+height = 0.5
 
 [node name="Coolspiderthingy" instance=ExtResource("1_wuvxv")]
 script = ExtResource("2_sx3re")
@@ -255,10 +259,25 @@ material = SubResource("StandardMaterial3D_4hdn5")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="9"]
 debug_enabled = true
 
-[node name="Area3D" type="Area3D" parent="." index="10"]
+[node name="Spiderbody" type="Area3D" parent="." index="10"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spiderbody" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0310252, 1.74383, 0.28833)
 shape = SubResource("BoxShape3D_0b8lt")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="GPUParticles3D" type="CPUParticles3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193042, 1.00001, 0.319326)
+amount = 500
+lifetime = 0.87
+preprocess = 1.81
+speed_scale = 1.02
+randomness = 1.0
+lifetime_randomness = 0.56
+fixed_fps = 30
+visibility_aabb = AABB(-1.8802, -7.63952, -1.36118, 3.73913, 9.50818, 2.68835)
+mesh = SubResource("CapsuleMesh_uxmuf")
+emission_shape = 2
+emission_sphere_radius = 1.4
+color = Color(0.544435, 0.518827, 0.75969, 1)
+
+[connection signal="body_entered" from="Spiderbody" to="." method="_on_area_3d_body_entered"]

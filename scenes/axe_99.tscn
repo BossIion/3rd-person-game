@@ -7,12 +7,12 @@
 size = Vector3(1.88171, 4.38498, 0.504395)
 
 [node name="Axe_99" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_u022q")
 
 [node name="lvl_9000_axe" parent="." instance=ExtResource("2_rnee3")]
+transform = Transform3D(0.989781, 0, -0.142594, 0, 1, 0, 0.142594, 0, 0.989781, 0, 0, 0)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999995, 0, 0, 0, 0.999995, 0, 0, 0, 1, 0.440856, -0.0422178, 0.0373535)
