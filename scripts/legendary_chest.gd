@@ -11,7 +11,8 @@ func _process(delta: float) -> void:
 	if in_range and Input.is_action_pressed("open") and not opened:
 		opened = true
 		$AnimationPlayer.play("Chest_Open")
-
+		$"../../Coolspiderthingy"["visible"] = true
+		$"../../Coolspiderthingy".legendary_chest_opened = true
 
 
 

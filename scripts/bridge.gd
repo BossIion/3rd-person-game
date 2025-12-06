@@ -8,6 +8,8 @@ func _ready() -> void:
 	pass
 
 func build_bridge():
-	if $"../Player".wood >= 21:
+	if $"../../Player".wood >= 3:
+		$"../../Player".wood = $"../../Player".wood - 3
+		$"../../Label".text = "Wood " + str($"../../Player".wood)
 		position.y += 50
 		$"."["visible"] = true
