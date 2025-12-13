@@ -19,4 +19,8 @@ func _on_life_timer_timeout() -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.name == "Spiderbody":
+		area.get_parent().get_node("GPUParticles3D").restart()
+		area.get_parent().move_speed = 5
+		await get_tree().create_timer(2).timeout
+		
 		area.get_parent().queue_free()

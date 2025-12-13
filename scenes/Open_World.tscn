@@ -386,7 +386,7 @@ carve_navigation_mesh = true
 visible = false
 
 [node name="Axe_99" parent="." instance=ExtResource("16_20yuk")]
-transform = Transform3D(-0.0694595, 0, 0.393923, 0, 0.4, 0, -0.393923, 0, -0.0694595, 15.4707, -0.340788, -56.4199)
+transform = Transform3D(-0.0694596, 0, 0.393923, 0, 0.4, 0, -0.393923, 0, -0.0694596, 15.4707, -0.340788, -56.4199)
 
 [node name="swing99" type="AnimationPlayer" parent="Axe_99"]
 libraries = {

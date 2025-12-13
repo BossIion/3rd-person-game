@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://yqq5voq4gtk2"]
+[gd_scene load_steps=12 format=3 uid="uid://yqq5voq4gtk2"]
 
 [ext_resource type="Script" uid="uid://xbi6ydfumny0" path="res://scripts/tree.gd" id="1_avsvi"]
 
@@ -55,8 +55,28 @@ _data = {
 &"Tree_Fall": SubResource("Animation_avsvi")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avsvi"]
+albedo_color = Color(1, 0.175378, 0.115047, 1)
+emission_enabled = true
+emission = Color(1, 0.0405029, 0.0223527, 1)
+emission_energy_multiplier = 9.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd6xs"]
+albedo_color = Color(0.980392, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ake3r"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18mvg"]
+albedo_color = Color(0, 0.65098, 0.0352941, 1)
+emission_enabled = true
+emission = Color(0, 0.603922, 0, 1)
+
 [node name="Area3D" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998167, -0.0605259, 0, 0.0605259, 0.998167, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998167, -0.0605259, 0, 0.0605259, 0.998167, 0, 0, -0.0156968)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_avsvi")
@@ -89,5 +109,89 @@ root_node = NodePath("../CollisionShape3D/Node3D")
 libraries = {
 &"": SubResource("AnimationLibrary_viusy")
 }
+
+[node name="red lights" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="red lights"]
+transform = Transform3D(-0.927641, -0.0226048, -0.372789, 0.0226048, 0.992938, -0.116458, 0.372789, -0.116458, -0.920578, -0.868658, 3.65859, 1.30806)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_avsvi")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="red lights"]
+transform = Transform3D(0.721035, 0.0419383, 0.691628, -0.0419382, 0.998977, -0.0168536, -0.691627, -0.0168536, 0.722056, 1.42078, 4.4283, -0.470343)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_avsvi")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="red lights"]
+transform = Transform3D(0.927654, 0.0226028, 0.372756, -0.0226028, 0.999734, -0.00437081, -0.372756, -0.00437074, 0.927918, -0.608525, 3.50206, -1.27342)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_avsvi")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="red lights"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, -1.44246, 4.48834, 0.519833)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_avsvi")
+
+[node name="yellow lights" type="Node3D" parent="."]
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="yellow lights"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, 1.40708, 3.74743, 0.548364)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_qd6xs")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="yellow lights"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, 0.861331, 4.0714, -1.33045)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_qd6xs")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="yellow lights"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, -1.44163, 3.6276, -0.787699)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_qd6xs")
+
+[node name="white lights" type="Node3D" parent="."]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, 1.40708, 4.56031, 0.998338)
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="white lights"]
+transform = Transform3D(1, 0, -2.98023e-08, -1.86265e-09, 1, -7.45058e-09, 0, -3.72529e-09, 1, 0, 0, 0)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_ake3r")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="white lights"]
+transform = Transform3D(1, 0, -2.98023e-08, -1.86265e-09, 1, -7.45058e-09, 0, -3.72529e-09, 1, 0.217866, 0.210884, 3.47782)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_ake3r")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="white lights"]
+transform = Transform3D(1, 0, -2.98023e-08, -1.86265e-09, 1, -7.45058e-09, 0, -3.72529e-09, 1, 2.01542, -0.838452, 2.2285)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_ake3r")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="white lights"]
+transform = Transform3D(1, 0, -2.98023e-08, -1.86265e-09, 1, -7.45058e-09, 0, -3.72529e-09, 1, 1.37339, -0.0148339, 0.957573)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_ake3r")
+
+[node name="green lughts" type="Node3D" parent="."]
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="green lughts"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, -0.134429, 3.95927, -1.31562)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_18mvg")
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="green lughts"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, -1.4991, 4.27677, -0.43684)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_18mvg")
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="green lughts"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, -0.14617, 4.02091, 1.36728)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_18mvg")
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="green lughts"]
+transform = Transform3D(-0.72106, -0.0419368, -0.691603, 0.0419367, 0.993694, -0.103978, 0.691602, -0.103978, -0.714754, 1.44767, 3.5431, -0.858881)
+radius = 0.153659
+material = SubResource("StandardMaterial3D_18mvg")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

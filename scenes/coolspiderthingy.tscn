@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csfxbyii81oaq"]
+[gd_scene load_steps=13 format=3 uid="uid://csfxbyii81oaq"]
 
 [ext_resource type="PackedScene" uid="uid://cvk6cw8q7hkbm" path="res://Assets/Coolspiderthingy.glb" id="1_wuvxv"]
 [ext_resource type="Script" uid="uid://lkmai5oel00x" path="res://scripts/coolspiderthingy.gd" id="2_sx3re"]
@@ -24,8 +24,21 @@ albedo_color = Color(0.215824, 0.509627, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0b8lt"]
 size = Vector3(3.97355, 1.79626, 2.28955)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_uxmuf"]
-radius = 0.1
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uxmuf"]
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 66.67
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmuf"]
+albedo_color = Color(0, 0.680875, 0.66446, 1)
+emission_enabled = true
+emission = Color(2.69532e-06, 0.767935, 0.757734, 1)
+emission_energy_multiplier = 15.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_infcg"]
+material = SubResource("StandardMaterial3D_uxmuf")
+radius = 0.25
 height = 0.5
 
 [node name="Coolspiderthingy" instance=ExtResource("1_wuvxv")]
@@ -265,19 +278,16 @@ debug_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0310252, 1.74383, 0.28833)
 shape = SubResource("BoxShape3D_0b8lt")
 
-[node name="GPUParticles3D" type="CPUParticles3D" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193042, 1.00001, 0.319326)
-amount = 500
-lifetime = 0.87
-preprocess = 1.81
-speed_scale = 1.02
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="11"]
+transform = Transform3D(-0.999908, -0.0135608, 0, 0.0135608, -0.999908, 0, 0, 0, 1, 0, 0, 0)
+emitting = false
+amount = 300
+lifetime = 5.0
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
 randomness = 1.0
-lifetime_randomness = 0.56
-fixed_fps = 30
-visibility_aabb = AABB(-1.8802, -7.63952, -1.36118, 3.73913, 9.50818, 2.68835)
-mesh = SubResource("CapsuleMesh_uxmuf")
-emission_shape = 2
-emission_sphere_radius = 1.4
-color = Color(0.544435, 0.518827, 0.75969, 1)
+process_material = SubResource("ParticleProcessMaterial_uxmuf")
+draw_pass_1 = SubResource("SphereMesh_infcg")
 
 [connection signal="body_entered" from="Spiderbody" to="." method="_on_area_3d_body_entered"]
