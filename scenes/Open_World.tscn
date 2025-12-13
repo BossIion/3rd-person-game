@@ -13,9 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cu12536sklhfm" path="res://scenes/island.tscn" id="10_xe0tc"]
 [ext_resource type="PackedScene" uid="uid://t0aiq4ji75db" path="res://scenes/bridge.tscn" id="11_wi7s1"]
 [ext_resource type="PackedScene" uid="uid://jxev5k6rfw7c" path="res://scenes/legendary_chest.tscn" id="12_c4b18"]
+
+[ext_resource type="PackedScene" uid="uid://csfxbyii81oaq" path="res://scripts/coolspiderthingy.tscn" id="13_0pahq"]
 [ext_resource type="PackedScene" uid="uid://csfxbyii81oaq" path="res://scenes/coolspiderthingy.tscn" id="13_0pahq"]
 [ext_resource type="PackedScene" uid="uid://ddkgvgpemc2f6" path="res://scenes/death_screen.tscn" id="14_x7tmq"]
 [ext_resource type="PackedScene" uid="uid://dwifnmdvmd0nl" path="res://scenes/axe_99.tscn" id="16_20yuk"]
+
 
 [sub_resource type="Animation" id="Animation_axe_swing"]
 resource_name = "Axe_SWING"
