@@ -100,6 +100,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	die(body)
 	
 func _on_timer_timeout() -> void:
-	global_position = $"../NavigationRegion3D/Legendary_Chest".global_position
+	global_position = $"../Spiderport".global_position
+	$LeftCenterDown.global_position = $"../Spiderport".global_position
+	$LeftDown.global_position = $"../Spiderport".global_position
+	$LeftUp.global_position = $"../Spiderport".global_position
+	$RightDown.global_position = $"../Spiderport".global_position
+	$RightCenterDown.global_position = $"../Spiderport".global_position
+	$RightUp.global_position = $"../Spiderport".global_position
 	movement = true
 	print("Spider spawned")
